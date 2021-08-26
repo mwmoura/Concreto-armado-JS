@@ -40,7 +40,7 @@
         }
 
         thead{
-            background-color: rgb(3, 1, 12);
+            background-color: rgb(0, 0, 0);
             color: white;
         }
 
@@ -198,61 +198,56 @@
     console.log(verifica);
     
         //Faz a verificação se o elemento existe antes, se existir ele deleta
-        while(verifica ==true){
+        while(verifica == true){
         var verifica = !!document.getElementById('2area');
         document.getElementById('tabela1').deleteRow(-1);
-
         }
 
         for (let contador=0;contador<repeticoes;contador++){
 
-        //Inserindo 2 linhas a cada repetição, uma para a Altura útil da da camada de armadura e a outra para a Área de aço da camada de armadura
-        var novalinha1 = tabela.insertRow(-1);
-        var novalinha2 = tabela.insertRow(-1);
+            //Inserindo 2 linhas a cada repetição, uma para a Altura útil da da camada de armadura e a outra para a Área de aço da camada de armadura
+            var novalinha1 = tabela.insertRow(-1);
+            var novalinha2 = tabela.insertRow(-1);
 
-        //Inserindo as Células para a Altura útil da da camada de armadura
-        var novacoluna1 = novalinha1.insertCell(0);
-        var novacoluna2 = novalinha1.insertCell(1);
-        var novacoluna3 = novalinha1.insertCell(2);
+            //Inserindo as Células para a Altura útil da da camada de armadura
+            var novacoluna1 = novalinha1.insertCell(0);
+            var novacoluna2 = novalinha1.insertCell(1);
+            var novacoluna3 = novalinha1.insertCell(2);
 
-        //Inserindo as células para a Área de aço da camada de armadura
-        var novacoluna4 = novalinha2.insertCell(0);
-        var novacoluna5 = novalinha2.insertCell(1);
-        var novacoluna6 = novalinha2.insertCell(2);
+            //Inserindo as células para a Área de aço da camada de armadura
+            var novacoluna4 = novalinha2.insertCell(0);
+            var novacoluna5 = novalinha2.insertCell(1);
+            var novacoluna6 = novalinha2.insertCell(2);
 
-        //Criando arrays para colocar todos os botões em um só array
-        var novoinput1 =[];
-        var novoinput2=[];
-        
-        //O array 1 - novoinput1 fica responsável por todos os botões referente a Altura útil da da camada de armadura enquanto o novoinput2 fica responsavel pelos botões da Área de aço da camada de armadura
-        novoinput1[contador] = document.createElement("input");
-        novoinput2[contador] = document.createElement("input");
-
-        //É por aqui que tu acessa o id dos elementos, por exemplo o id da altura útil da camada de armadura 2 será: 2altura enquanto o id da área de aço da camada 3 será: 3area;
-        novoinput1[contador].id = (contador+2)+'altura';
-        novoinput2[contador].id = (contador+2)+'area';
-        
-        //Identificando o tipo do botão, nesse caso é number
-        novoinput1[contador].type = "number";
-        novoinput2[contador].type = "number";
-
-        //Colocando Classe
-        novoinput1[contador].classList.add("novoinput");
-        novoinput2[contador].classList.add("novoinput");
-
-        novacoluna2.appendChild(novoinput1[contador]); //Aqui eu to anexando o input no campo do meio para altura útil da da camada de armadura 
-        novacoluna1.innerHTML = "Altura útil da da camada de armadura "+(contador+2) //Aqui fica a descrição do campo para altura útil da da camada de armadura
-        novacoluna3.innerHTML = "cm" //Aqui fica a unidade 
-
-        novacoluna5.appendChild(novoinput2[contador]); //Aqui eu to anexando o input no campo do meio para a area de aço da camada de armadura
-        novacoluna4.innerHTML = "Área de aço da camada de armadura "+(contador+2) //Aqui fica a descrição do campo para Área de aço da camada de armadura
-        novacoluna6.innerHTML = "cm²" //Aqui fica a unidade 
-
-    
-
-    }
-}
+            //Criando arrays para colocar todos os botões em um só array
+            var novoinput1 =[];
+            var novoinput2=[];
             
+            //O array 1 - novoinput1 fica responsável por todos os botões referente a Altura útil da da camada de armadura enquanto o novoinput2 fica responsavel pelos botões da Área de aço da camada de armadura
+            novoinput1[contador] = document.createElement("input");
+            novoinput2[contador] = document.createElement("input");
+
+            //É por aqui que tu acessa o id dos elementos, por exemplo o id da altura útil da camada de armadura 2 será: 2altura enquanto o id da área de aço da camada 3 será: 3area;
+            novoinput1[contador].id = (contador+2)+'altura';
+            novoinput2[contador].id = (contador+2)+'area';
+            
+            //Identificando o tipo do botão, nesse caso é number
+            novoinput1[contador].type = "number";
+            novoinput2[contador].type = "number";
+
+            //Colocando Classe
+            novoinput1[contador].classList.add("novoinput");
+            novoinput2[contador].classList.add("novoinput");
+
+            novacoluna2.appendChild(novoinput1[contador]); //Aqui eu to anexando o input no campo do meio para altura útil da da camada de armadura 
+            novacoluna1.innerHTML = "Altura útil da da camada de armadura "+(contador+2) //Aqui fica a descrição do campo para altura útil da da camada de armadura
+            novacoluna3.innerHTML = "cm" //Aqui fica a unidade 
+
+            novacoluna5.appendChild(novoinput2[contador]); //Aqui eu to anexando o input no campo do meio para a area de aço da camada de armadura
+            novacoluna4.innerHTML = "Área de aço da camada de armadura "+(contador+2) //Aqui fica a descrição do campo para Área de aço da camada de armadura
+            novacoluna6.innerHTML = "cm²" //Aqui fica a unidade 
+        }
+    }  
 
     function calcular() {
 
@@ -311,21 +306,13 @@
         var di = [];
         var asi = [];
 
-        var d = document.getElementById('d')
-        di[0] = Number(d.value)
-        var as = document.getElementById('as')
-        asi[0] = Number(as.value)
-        if (n1 >= 2){
-            i = 1
-            for (i;i <= n1 -1;1) {
-                var d = document.getElementById((i+1)+'altura')
-                di[i] = Number(d.value)
-                var as = document.getElementById((i+1)+'area')
-                asi[i] = Number(as.value)
-                i++
-            }
+        if (n1 = 1) {
+            var d = document.getElementById('d')
+            di[0] = Number(d.value)
+            var as = document.getElementById('as')
+            asi[0] = Number(as.value)
         }
-        
+                    
         // Parâmetros do diagrama retangular
         if (fck1 <= 50) {
             var alamb = 0.8
@@ -355,13 +342,13 @@
         // Chamar sub-rotina
         f = funcao(xi)
         fi = f
-
+        //res.innerHTML = fi
         // Valor final para a linha neutra
         xf = di[0]
         // Chamar sub-rotina
         f = funcao(xf)
         ff = f
-
+        //res1.innerHTML = ff
         // Processo iterativo da bissecante
         fk = 1
         while (Math.abs(fk) > 0.001) {
@@ -390,12 +377,13 @@
             amu = amu + asi[i] * tens[i] * (di[0] - di[i])
             i++
         }
-    
+
         // Passando o momento para kN.m
         amu = amu / 100
-
+        
         // Verificação de erros e saída de resultados
-        while (fck1 == 0 || fyk1 == 0 || es1 == 0 || gamac1 == 0 || gamas1 == 0 || b1 == 0 || n1 == 0) {
+        // Verificação de erros e saída de resultados
+        while (fck1 == 0 || fyk1 == 0 || es1 == 0 || gamac1 == 0 || gamas1 == 0 || b1 == 0 || n1 == 0 || di[0] == 0 || asi[0] == 0) {
             test = 2
             window.alert('[ERRO] Problema na inserção dos dados de entrada!')
             break
@@ -406,6 +394,18 @@
             res.innerHTML = `<strong>O momento resistente é ${amu.toFixed(2)} kN.m</strong>`
         }
         test = 0
+        //res1.innerHTML = `<strong>O momento resistente é ${amu.toFixed(2)} kN.m</strong>`
+        // Verificação de erros e saída de resultados
+        /*while (fck == 0 || fyk == 0 || es == 0 || gamac == 0 || gamas == 0 || b == 0 || d == 0) {
+            test = 2
+            window.alert('[ERRO] Problema na inserção dos dados de entrada!')
+            break
+        }    
+        if (test == 2) {
+            res.innerHTML = `<strong>Entre com os dados corretamente!</strong>`
+        } else {
+            res.innerHTML = `<strong>O momento resistente é ${amu.toFixed(2)} kN.m</strong>`
+        }*/
     }
 
 </script>

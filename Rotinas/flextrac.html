@@ -76,7 +76,7 @@
 
 <body>
 
-    <h1>Dimensionamento à Flexo-Tração Normal</h1>
+    <h1>Dimensionamento à Flexo-Tração</h1>
 
     <section>
     <table>
@@ -117,7 +117,7 @@
         </tr>
 
         <tr>
-            <td class="info" >Coeficiente parcial de segurança para o esforço cortante</td>
+            <td class="info" >Coeficiente parcial de segurança para os esforços</td>
             <td class="valor"><input type="number" name="gamaf" id="gamaf"></td>
             <td class="unidade"> --- </td>
         </tr>
@@ -353,7 +353,7 @@
         // Mostrando os resultados
 
         // Verificação de erros e saída de resultados
-        while (fck == 0 || fyk == 0 || gamac == 0 || gamas == 0 || gamaf == 0 || b == 0 || d == 0 || amk == 0) {
+        while (fck == 0 || fyk == 0 || es == 0 || gamac == 0 || gamas == 0 || gamaf == 0 || bduct == 0 || b == 0 || h == 0 || d == 0 || amk == 0 || ank == 0) {
             test = 2
             window.alert('[ERRO] Problema na inserção dos dados de entrada!')
             break
